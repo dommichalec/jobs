@@ -7,6 +7,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module RemoteJobs
+  # Application class
   class Application < Rails::Application
     console do
       ActiveRecord::Base.connection
