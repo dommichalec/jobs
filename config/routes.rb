@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'jobs' => 'jobs#index'
-  get 'companies' => 'companies#index'
+  resources :companies
+  resources :jobs
 end
