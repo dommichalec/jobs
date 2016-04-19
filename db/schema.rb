@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419173444) do
+ActiveRecord::Schema.define(version: 20160419193755) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20160419173444) do
     t.string   "url"
     t.string   "stack"
     t.integer  "size"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.text     "about_us"
     t.string   "industry"
+    t.string   "open_source_projects_url"
   end
 
   create_table "jobs", force: :cascade do |t|
