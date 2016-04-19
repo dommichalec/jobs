@@ -1,4 +1,5 @@
 <h1><%= @company.name %></h1>
 
 <%= link_to "Edit", edit_company_path(@company) %><br>
-<%= link_to "Go back", companies_path %>
+<%= link_to "Go back", companies_path %><br>
+<%= link_to "Remove #{@company.name} from the site", company_path(@company.id), method: :delete, data: { confirm: "Are you sure you want to remove #{@company.name} from the site? All postings associated with this company will also be removed. Click 'OK' to confirm deletion or 'Cancel' to go back." } %>

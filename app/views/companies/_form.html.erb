@@ -5,11 +5,11 @@
   </p>
   <p>
     <%= f.label :industry %>
-    <%= f.text_field :industry %>
+    <%= f.text_field :industry, placeholder: "Healthcare IT, Fintech, etc." %>
   </p>
   <p>
     <%= f.label :about_us %>
-    <%= f.text_area :about_us, cols: 25, rows: 2 %>
+    <%= f.text_area :about_us, placeholder: "Keep it simple, but significant. 300 characters or less should do the trick.", cols: 25, rows: 2 %>
   </p>
   <p>
     <%= f.label :headquarters_location %>
@@ -17,20 +17,21 @@
   </p>
   <p>
     <%= f.label :url, "Copy and paste your company URL here: " %>
-    <%= f.text_field :url %>
+    <%= f.text_field :url, placeholder: "https://www.remotedev.jobs/home" %>
   </p>
   <p>
     <%= f.label :open_source_projects_url, "Copy and paste your open source projects URL here: " %>
-    <%= f.text_field :open_source_projects_url %>
+    <%= f.text_field :open_source_projects_url, placeholder: "https://www.github.com/remote-devs" %>
   </p>
   <p>
     <%= f.label :stack %>
-    <%= f.text_field :stack %>
+    <%= f.text_field :stack, placeholder: "Ruby on Rails, Heroku, AWS, PostgreSQL" %>
   </p>
   <p>
     <%= f.label :company_size %>
     <%= f.number_field :size %>
   </p>
 
-  <%= f.submit %>
+  <%= f.submit %> or
+  <%= link_to("Cancel", companies_path) %>
 <% end %>
