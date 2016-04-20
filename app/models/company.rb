@@ -6,5 +6,5 @@ class Company < ActiveRecord::Base
   validates :size, numericality: { greater_than_or_equal_to: 1 }
   validates :founded_in, numericality: { less_than_or_equal_to: $CURRENT_YEAR }, length: { is: 4 }
 
-  has_many :jobs
+  has_many :jobs, dependent: :destroy
 end
