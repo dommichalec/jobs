@@ -1,4 +1,4 @@
 <% @companies.each do |c| %>
-  <p><%= link_to(c.name, company_path(c.id)) %> is located in <%= c.headquarters_location %></p>
-  <p>Member since <%= c.created_at.strftime("%B %Y") %></p>
+  <h1><%= link_to(c.name, company_path(c.id)) %></h1>
+  <p><em><%= c.headquarters_location %>-based <%= c.industry.downcase %> company</em></p>
 <% end %>

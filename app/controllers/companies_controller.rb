@@ -20,7 +20,6 @@ class CompaniesController < ApplicationController
       render :edit
     end
     redirect_to company_path(@company)
-    flash[:alert] = "#{@company.name} has been successfully updated!"
   end
 
   def new
@@ -31,7 +30,6 @@ class CompaniesController < ApplicationController
     @company = Company.create(company_params)
     if @company.save
       redirect_to company_path(@company)
-      flash[:alert] = "#{@company.name} has been successfully added!"
     else
       render :new
     end
@@ -46,6 +44,7 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :headquarters_location, :url, :stack, :size, :industry, :about_us, :open_source_projects_url)
+    params.require(:company).
+      permit(:name, :headquarters_location, :url, :stack, :size, :founded_in, :industry, :about_us, :open_source_projects_url)
   end
 end

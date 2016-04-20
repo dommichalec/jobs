@@ -12,15 +12,19 @@
     <%= f.text_area :about_us, placeholder: "Keep it simple, but significant. 300 characters or less should do the trick.", cols: 25, rows: 2 %>
   </p>
   <p>
+    <%= f.label :founded_in %>
+    <%= f.text_field :founded_in %>
+  </p>
+  <p>
     <%= f.label :headquarters_location %>
     <%= f.text_field :headquarters_location %>
   </p>
   <p>
-    <%= f.label :url, "Copy and paste your company URL here: " %>
+    <%= f.label :url, "Copy and paste your company homepage URL here: " %>
     <%= f.text_field :url, placeholder: "https://www.remotedev.jobs/home" %>
   </p>
   <p>
-    <%= f.label :open_source_projects_url, "Copy and paste your open source projects URL here: " %>
+    <%= f.label :open_source_projects_url, "Copy and paste your company's open source projects URL here: " %>
     <%= f.text_field :open_source_projects_url, placeholder: "https://www.github.com/remote-devs" %>
   </p>
   <p>
