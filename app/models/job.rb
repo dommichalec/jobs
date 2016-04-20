@@ -1,11 +1,6 @@
 class Job < ActiveRecord::Base
+  belongs_to :company
   def filled?
     available == false
-  end
-
-  # display the jobs that were created <= 30 days ago
-
-  def self.within_range
-    Job.where("created_at <= ?", 30.days.ago)
   end
 end

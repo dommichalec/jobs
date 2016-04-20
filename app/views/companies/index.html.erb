@@ -1,4 +1,4 @@
 <% @companies.each do |c| %>
   <h1><%= link_to(c.name, company_path(c.id)) %></h1>
-  <p><em><%= c.headquarters_location %>-based <%= c.industry.downcase %> company</em></p>
+  <p><em><%= c.headquarters_location %>-based <%= c.industry %> company</em></p>
 <% end %>

@@ -14,12 +14,11 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    if @company.save
-      @company.update(company_params)
+    if @company.update(company_params)
+      redirect_to company_path(@company), notice: "#{@company.name} has been successfully updated!"
     else
       render :edit
     end
-    redirect_to company_path(@company)
   end
 
   def new
@@ -29,7 +28,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.create(company_params)
     if @company.save
-      redirect_to company_path(@company)
+      redirect_to company_path(@company), notice: "#{@company.name} has been successfully added!"
     else
       render :new
     end
@@ -37,8 +36,9 @@ class CompaniesController < ApplicationController
 
   def destroy
     @company = Company.find(params[:id])
+    company_name = @company.name
     @company.destroy
-    redirect_to companies_url
+    redirect_to companies_url, notice: "#{company_name} and all associated postings have been successfully deleted!"
   end
 
   private
