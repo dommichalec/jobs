@@ -1,3 +1,4 @@
+# Company class
 class Company < ActiveRecord::Base
   validates :name, :url, :headquarters_location, :stack, :industry, presence: true
   validates :name, :url, uniqueness: true
