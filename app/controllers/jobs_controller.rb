@@ -18,7 +18,7 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @job = @company.jobs.create(job_params)
     if @job.save
-      redirect_to company_path(@company), notice: "The #{@job.title} position has been successfully added to #{@company.name}'s profile!"
+      redirect_to root_path, notice: "The #{@job.title} position has been successfully added to #{@company.name}'s profile!"
     else
       render :new
     end
@@ -37,6 +37,14 @@ class JobsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @company = Company.find(params[:company_id])
+    @job = @company.jobs.find(params[:id])
+    job_title = @job.title
+    @job.destroy
+    redirect_to company_path(@company), notice: "#{job_title} has been successfully removed from #{@company.name}'s profile!'"
   end
 
   private
