@@ -1,6 +1,7 @@
 <h1>Create a new job posting for <%= @company.name %> below: </h1>
 
 <%= form_for [@company, @job] do |f| %>
+<%= render 'shared/errors', object: @job %>
   <p>
     <%= f.label :title %>
     <%= f.text_field :title, autofocus: true %>
