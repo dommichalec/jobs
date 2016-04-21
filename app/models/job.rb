@@ -3,4 +3,8 @@ class Job < ActiveRecord::Base
   def filled?
     available == false
   end
+
+  def self.last_updated
+    order('updated_at desc')
+  end
 end
