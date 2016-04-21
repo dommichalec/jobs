@@ -1,31 +1,31 @@
 <h1>Edit <%= @job.title %> below: </h1>
 
 <%= form_for [@company, @job] do |f| %>
+<%= render 'shared/errors', object: @job %>
   <p>
     <%= f.label :title %>
     <%= f.text_field :title, autofocus: true %>
   </p>
-
   <p>
     <%= f.label :job_description %>
     <%= f.text_area :description %>
   </p>
-
   <p>
     <%= f.label :time_spent_in_office %>
     <%= f.number_field :time_spent_in_office %>
   </p>
-
   <p>
     <%= f.label :how_to_apply %>
     <%= f.text_field :how_apply %>
   </p>
-
   <p>
     <%= f.label :available_positions %>
     <%= f.number_field :available_positions %>
   </p>
-
+  <p>
+    <%= f.label :available, "Uncheck this box once this position is filled: " %>
+    <%= f.check_box :available %>
+  </p>
   <p>
     <%= f.submit %>
   </p>
