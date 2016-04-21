@@ -1,0 +1,3 @@
+<% @jobs.each do |j| %>
+  <h3><strong><%= j.company.name %></strong> <em><%= link_to(j.title, company_job_path(j.company.id, j.id)) %></em></h3>
+<% end %>
