@@ -45,6 +45,6 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).
-      permit(:name, :headquarters_location, :url, :stack, :size, :founded_in, :industry, :about_us, :open_source_projects_url)
+      permit(:name, :headquarters_location, :url, :stack, :size, :founded_in, :industry, :about_us, :open_source_projects_url, :careers_page_url)
   end
 end
