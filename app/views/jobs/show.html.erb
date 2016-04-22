@@ -4,3 +4,7 @@
   <p><em>This position requires <%= to_percentage(@job) %> time spent on-site at <%= @job.company.name %></em></p>
   <%= link_to("Remove #{@job.title} posting from the site", company_job_path, method: :delete, data: { confirm: "Are you sure you want to remove this posting from the site? Click 'OK' to confirm or 'Cancel' to go back" }) %>
 </div>
+
+<nav class="navbar navbar-fixed-bottom navbar-dark bg-primary">
+  <p class='lead centered'>Interested in this position? Send your resume to <%= @job.how_apply %></p>
+</nav>
