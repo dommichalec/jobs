@@ -1,3 +1,6 @@
-<h1><%= @job.title %></h1>
-<p><em>This position requires <%= to_percentage(@job) %> time spent on-site at <%= @job.company.name %></em></p>
-<%= link_to("Remove #{@job.title} posting from the site", company_job_path, method: :delete, data: { confirm: "Are you sure you want to remove this posting from the site? Click 'OK' to confirm or 'Cancel' to go back" }) %>
+<div class='container'>
+  <%= image_tag @job.company.logo.url(:medium) %>
+  <h1><%= @job.title %></h1>
+  <p><em>This position requires <%= to_percentage(@job) %> time spent on-site at <%= @job.company.name %></em></p>
+  <%= link_to("Remove #{@job.title} posting from the site", company_job_path, method: :delete, data: { confirm: "Are you sure you want to remove this posting from the site? Click 'OK' to confirm or 'Cancel' to go back" }) %>
+</div>

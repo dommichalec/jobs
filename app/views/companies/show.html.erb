@@ -1,4 +1,4 @@
-<h1><%= @company.name %></h1>
+<%= image_tag @company.logo.url(:medium) %><br>
 
 <%= link_to "Edit #{@company.name}'s profile", edit_company_path(@company) %> | <br>
 <%= link_to "Add new job posting to #{@company.name}'s profile", new_company_job_path(@company) %> | <br>

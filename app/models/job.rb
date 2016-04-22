@@ -13,7 +13,7 @@ class Job < ActiveRecord::Base
     order('updated_at desc')
   end
 
-  def available?
-    available == true
+  def still_available?
+    available
   end
 end
