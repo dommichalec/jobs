@@ -1,6 +1,12 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3">Find and list jobs for remote development work</h1>
-    <p class="lead">Looking to post that first job? <%= link_to('Create your free company profile today', '#')%></p>
+    <% if current_user %>
+    <h1 class="display-3 centered">Welcome back, <%= current_user.first_name %>!</h1>
+    <h3 class='centered'><%= link_to "Manage your account and job posts", current_user %> or <%= link_to "Sign out", session_path, method: :delete %></h3>
+    <% else %>
+      <h1 class="display-3">Discover and list jobs for remote software development</h1>
+      <h3>Looking to post that first job? <%= link_to('Create your free profile today', sign_up_path, class: 'btn btn-lg btn-default')%></h3>
+      <p><em>Already have an account? <%= link_to "Sign in", new_session_path %></em></p>
+    <% end %>
   </div>
 </div>

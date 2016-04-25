@@ -1,0 +1,8 @@
+<h1>Manage all global users</h1>
+  <ul>
+    <% @users.each do |u| %>
+      <li>
+        <%= u.first_name %> <%= u.last_name %> <em>(<%= link_to(u.email, u) %>)</em>
+      </li>
+    <% end %>
+  </ul>

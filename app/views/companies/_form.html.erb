@@ -2,45 +2,46 @@
 <%= render 'shared/errors', object: @company %>
   <p>
     <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name, required: true, autofocus: true %>
   </p>
   <p>
     <%= f.label :industry %>
-    <%= f.text_field :industry, placeholder: "Healthcare IT, Fintech, etc." %>
+    <%= f.text_field :industry, placeholder: "Healthcare IT, Fintech, etc.", required: true %>
   </p>
   <p>
     <%= f.label :about_us %>
-    <%= f.text_area :about_us, placeholder: "Keep it simple, but significant. 300 characters or less should do the trick.", cols: 25, rows: 2 %>
+    <%= f.text_area :about_us, placeholder: "Keep it simple, but significant. 300 characters or less should do the trick.", cols: 25, rows: 2, required: true %>
   </p>
   <p>
     <%= f.label :founded_in %>
-    <%= f.number_field :founded_in, placeholder: "year in 'YYYY' format" %>
+    <%= f.number_field :founded_in, placeholder: "year in 'YYYY' format", required: true %>
   </p>
   <p>
     <%= f.label :headquarters_location %>
-    <%= f.text_field :headquarters_location, placeholder: "San Francisco, CA" %>
+    <%= f.text_field :headquarters_location, placeholder: "San Francisco, CA", required: true%>
   </p>
   <p>
     <%= f.label :url, "Copy and paste your company homepage URL here: " %>
-    <%= f.text_field :url, placeholder: "https://www.remotedev.jobs/home" %>
+    <%= f.text_field :url, placeholder: "https://www.remotedev.jobs/home", required: true%>
   </p>
   <p>
     <%= f.label :careers_page_url, "Copy and paste your company careers page URL here: " %>
-    <%= f.text_field :careers_page_url, placeholder: "https://www.remotedev.jobs/careers" %>
+    <%= f.text_field :careers_page_url, placeholder: "https://www.remotedev.jobs/careers", required: true%>
   </p>
   <p>
     <%= f.label :open_source_projects_url, "Copy and paste your company's open source projects URL here: " %>
-    <%= f.text_field :open_source_projects_url, placeholder: "https://www.github.com/remote-devs" %>
+    <%= f.text_field :open_source_projects_url, placeholder: "https://www.github.com/remote-devs", required: true%>
   </p>
   <p>
     <%= f.label :stack, "Stack (separated by commas)" %>
-    <%= f.text_field :stack, placeholder: "Ruby on Rails, Heroku, AWS, PostgreSQL" %>
+    <%= f.text_field :stack, placeholder: "Ruby on Rails, Heroku, AWS, PostgreSQL", required: true%>
   </p>
   <p>
     <%= f.label :company_size %>
-    <%= f.number_field :size %>
+    <%= f.number_field :size, required: true%>
   </p>
   <p>
+    <%= f.label :company_logo %>
     <%= f.file_field :logo %>
   </p>
   <%= f.submit %> or
