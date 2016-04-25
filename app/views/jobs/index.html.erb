@@ -9,7 +9,7 @@
         <th>Headquarters</th>
         <th>Job Title</th>
         <th>Industry</th>
-        <th>Still available?</th>
+        <th class='centered'>Still available?</th>
       </tr>
     </thead>
     <% @jobs.each do |j| %>
@@ -21,9 +21,9 @@
           <td><h5><%= j.company.industry %></h5></td>
           <td>
             <% if j.still_available? %>
-            <p class='lead'><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" style="color:green"></span></p>
+            <p class='lead centered'><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true" style="color:green"></span></p>
             <% else %>
-            <p class='lead'><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true" style="color:red"></span></p>
+            <p class='lead centered'><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true" style="color:red"></span></p>
             <% end %>
           </td>
       </tbody>

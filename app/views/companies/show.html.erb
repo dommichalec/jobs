@@ -1,5 +1,9 @@
-<%= image_tag @company.logo.url(:medium) %><br>
-
-<%= link_to "Edit #{@company.name}'s profile", edit_company_path(@company) %> | <br>
-<%= link_to "Add new job posting to #{@company.name}'s profile", new_company_job_path(@company) %> | <br>
-<%= link_to "Remove #{@company.name} from the site", company_path(@company.id), method: :delete, data: { confirm: "Are you sure you want to remove #{@company.name} from the site? All job postings associated with this company will also be removed. This action is permanent. Click 'OK' to confirm deletion or 'Cancel' to go back." } %>
+<div class='container'>
+  <div class= 'centered'>
+    <h1>Company Profile for <%= image_tag @company.logo.url(:medium) %></h1><br>
+  </div>
+  <div class='centered'>
+    <h3><%= link_to "Edit profile", edit_company_path(@company) %> <%= link_to "Add new job posting", new_company_job_path(@company) %></h3><br>
+    <%= link_to "Remove #{@company.name} from the site", company_path(@company.id), method: :delete, data: { confirm: "Are you sure you want to remove #{@company.name} from the site? All job postings associated with this company will also be removed. This action is permanent. Click 'OK' to confirm deletion or 'Cancel' to go back." } %>
+  </div>
+</div>

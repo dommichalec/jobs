@@ -33,7 +33,7 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @job = @company.jobs.find(params[:id])
     if @job.update(job_params)
-      redirect_to company_path(@company), notice: "The #{@job.title} posting has been successfully updated on #{@company.name}'s profile!"
+      redirect_to company_job_path, notice: "The #{@job.title} posting has been successfully updated on #{@company.name}'s profile!"
     else
       render :edit
     end

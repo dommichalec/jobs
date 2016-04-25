@@ -1,4 +1,6 @@
-<% @companies.each do |c| %>
-  <h1><%= link_to(c.name, company_path(c.id)) %></h1>
-  <p><em><%= c.headquarters_location %>-based <%= c.industry %> company</em></p>
-<% end %>
+<div class='container'>
+  <% @companies.each do |c| %>
+    <h1><%= link_to(image_tag(c.logo(:medium)), company_path(c.id)) %></h1>
+    <p><em><%= c.headquarters_location %>-based <%= c.industry %> company</em></p>
+  <% end %>
+</div>

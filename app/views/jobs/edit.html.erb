@@ -1,4 +1,4 @@
-<h1>Edit <%= @job.title %> below: </h1>
+<h1>Edit the <%= @job.title %> posting at <%= @job.company.name %> below: </h1>
 
 <%= form_for [@company, @job] do |f| %>
 <%= render 'shared/errors', object: @job %>

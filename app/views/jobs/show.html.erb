@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-6">
       <h1><%= @job.title %></h1>
-      <p><em>This position requires <strong><%= to_percentage(@job) %></strong> time spent on-site at <%= @job.company.name %></em></p>
+      <p><em><span class="glyphicon glyphicon-send" aria-hidden="true"></span> This position requires <strong><%= to_percentage(@job) %></strong> time spent on-site at <%= @job.company.name %></em></p>
       <% if @job.still_available? %>
         <p class='lead' style="color:green"><em>This position currently has <strong><%= pluralize(@job.available_positions, 'remaining spot') %></strong> open for hire</em></p>
       <% else %>
@@ -10,22 +10,30 @@
       <% end %>
       <h3>A little about this position: </h3>
       <p class='lead'><%= @job.description %></p>
+        <%= link_to("Go back to all jobs", root_path) %><br>
     </div>
-    <div class="col-smd-6" style="float:right">
+    <div class="col-smd-6">
       <h1><%= image_tag @job.company.logo.url(:medium) %></h1>
-      <p><em><%= @job.company.name%> was founded in <%= @job.company.founded_in %>, Industry: <%= @job.company.industry%></em></p>
-      <p><em>The <%= @job.company.name%> stack includes <%= @job.company.stack %></em></p>
+      <p><em><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Employee count: <%= @job.company.size %></em></p>
+      <p><em><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> <%= @job.company.name%> was founded in <%= @job.company.founded_in %>, Industry: <%= @job.company.industry %></em></p>
+      <p><em><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> Company stack includes: <strong><%= @job.company.stack %></strong></em></p>
       <p><em><%= link_to("#{@job.company.name} website", @job.company.url, :target => '_blank') %> |
              <%= link_to("Full careers page", @job.company.careers_page_url, :target => '_blank') %> |
              <%= link_to("Open source projects page", @job.company.open_source_projects_url, :target => '_blank') %> |
       </p></em>
+      <h3><%= link_to("Edit the #{@job.company.name} profile", edit_company_path(@job.company)) %></h3>
     </div>
   </div>
-  <%= link_to("Go back to all jobs", root_path) %><br>
-  <%= link_to("Update this post's status", edit_company_job_path) %><br>
-  <%= link_to("Remove this post from the site", company_job_path, method: :delete, data: { confirm: "Are you sure you want to remove this posting from the site? Click 'OK' to confirm or 'Cancel' to go back" }) %>
+  <h3><%= link_to("Update this post's status", edit_company_job_path) %></h3>
+  <h3><%= link_to("Remove this post from the site", company_job_path, method: :delete, data: { confirm: "Are you sure you want to remove this posting from the site? Click 'OK' to confirm or 'Cancel' to go back" }) %></h3>
 </div>
 
+<% if @job.still_available? %>
 <nav class="navbar navbar-fixed-bottom navbar-dark bg-success">
-  <p class='lead centered'><strong>Interested in this position? Send your resume to <%= @job.how_apply %></strong></p>
+  <p class='lead centered'><strong>Interested in this position? Apply now: <%= @job.how_apply %></strong></p>
 </nav>
+<% else %>
+<nav class="navbar navbar-fixed-bottom navbar-dark bg-danger">
+  <p class='lead centered'><strong>Heads up: <%= @job.company.name %> is no longer accepting applications for this position</strong></p>
+</nav>
+<% end %>
