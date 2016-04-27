@@ -8,7 +8,7 @@
   </p>
 
   <p>
-    <%= f.label :job_description %>
+    <%= f.label :a_short_job_description %>
     <%= f.text_area :description, placeholder: "A quick paragraph on job responsibilities and desired skillset should do the trick." %>
   </p>
 
@@ -18,8 +18,8 @@
   </p>
 
   <p>
-    <%= f.label :send_resumes_to %>
-    <%= f.text_field :how_apply, placeholder: 'jobs@your-company.com' %>
+    <%= f.label :how_apply, "Copy and paste URL to full job description (but leave off the http://www. or https://www.)" %>
+    <%= f.text_field :how_apply, placeholder: 'remotedev.jobs/some_job' %>
   </p>
 
   <p>

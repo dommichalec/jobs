@@ -11,4 +11,5 @@ class Company < ActiveRecord::Base
   validates :founded_in, numericality: { less_than_or_equal_to: $CURRENT_YEAR }, length: { is: 4 }
 
   has_many :jobs, dependent: :destroy
+  has_many :users
 end

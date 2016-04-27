@@ -21,16 +21,16 @@
     <%= f.text_field :headquarters_location, placeholder: "San Francisco, CA", required: true%>
   </p>
   <p>
-    <%= f.label :url, "Copy and paste your company homepage URL here: " %>
-    <%= f.text_field :url, placeholder: "https://www.remotedev.jobs/home", required: true%>
+    <%= f.label :url, "Copy and paste your company homepage URL here: (but leave off the http://www. or https://www.)" %>
+    <%= f.text_field :url, placeholder: "remotedev.jobs/home", required: true%>
   </p>
   <p>
-    <%= f.label :careers_page_url, "Copy and paste your company careers page URL here: " %>
-    <%= f.text_field :careers_page_url, placeholder: "https://www.remotedev.jobs/careers", required: true%>
+    <%= f.label :careers_page_url, "Copy and paste your company careers page URL here: (but leave off the http://www. or https://www.)" %>
+    <%= f.text_field :careers_page_url, placeholder: "remotedev.jobs/careers", required: true%>
   </p>
   <p>
-    <%= f.label :open_source_projects_url, "Copy and paste your company's open source projects URL here: " %>
-    <%= f.text_field :open_source_projects_url, placeholder: "https://www.github.com/remote-devs", required: true%>
+    <%= f.label :open_source_projects_url, "Copy and paste your company's open source projects URL here: (but leave off the http://www. or https://www.)" %>
+    <%= f.text_field :open_source_projects_url, placeholder: "github.com/remote-devs", required: true%>
   </p>
   <p>
     <%= f.label :stack, "Stack (separated by commas)" %>

@@ -1,6 +1,9 @@
 # Company controller
 class CompaniesController < ApplicationController
+  before_action :require_signin
+
   def index
+    @user = User.find(params[:user_id])
     @companies = Company.all
   end
 

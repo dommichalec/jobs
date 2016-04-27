@@ -17,9 +17,9 @@
       <p><em><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Employee count: <%= @job.company.size %></em></p>
       <p><em><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> <%= @job.company.name%> was founded in <%= @job.company.founded_in %>, Industry: <%= @job.company.industry %></em></p>
       <p><em><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span> Company stack includes: <strong><%= @job.company.stack %></strong></em></p>
-      <p><em><%= link_to("#{@job.company.name} website", @job.company.url, :target => '_blank') %> |
-             <%= link_to("Full careers page", @job.company.careers_page_url, :target => '_blank') %> |
-             <%= link_to("Open source projects page", @job.company.open_source_projects_url, :target => '_blank') %> |
+      <p><em><%= link_to("#{@job.company.name} website", "http://#{@job.company.url}", :target => '_blank') %> |
+             <%= link_to("Full careers page", "http://#{@job.company.careers_page_url}", :target => '_blank') %> |
+             <%= link_to("Open source projects page", "http://#{@job.company.open_source_projects_url}", :target => '_blank') %> |
       </p></em>
       <h3><%= link_to("Edit the #{@job.company.name} profile", edit_company_path(@job.company)) %></h3>
     </div>
@@ -30,7 +30,7 @@
 
 <% if @job.still_available? %>
 <nav class="navbar navbar-fixed-bottom navbar-dark bg-success">
-  <p class='lead centered'><strong>Interested in this position? Apply now: <%= @job.how_apply %></strong></p>
+  <p class='lead centered'><strong>Interested in this position? <%= link_to("Learn more and apply today!", "http://#{@job.how_apply}", :target => '_blank') %></strong></p>
 </nav>
 <% else %>
 <nav class="navbar navbar-fixed-bottom navbar-dark bg-danger">

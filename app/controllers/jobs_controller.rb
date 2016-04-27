@@ -1,5 +1,6 @@
 # Jobs controller
 class JobsController < ApplicationController
+  before_action :require_signin, except: [:index, :show]
 
   def index
     @jobs = Job.last_updated

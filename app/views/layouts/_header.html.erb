@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <% if current_user %>
-    <h1 class="display-3 centered">Welcome back, <%= current_user.first_name %>!</h1>
+    <h1 class="display-3 centered">Happy <%= day_in_words %>, <%= current_user.first_name %>!</h1>
     <h3 class='centered'><%= link_to "Manage your account and job posts", current_user %> or <%= link_to "Sign out", session_path, method: :delete %></h3>
     <% else %>
       <h1 class="display-3">Discover and list jobs for remote software development</h1>

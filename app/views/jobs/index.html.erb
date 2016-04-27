@@ -15,7 +15,7 @@
     <% @jobs.each do |j| %>
       <tbody>
           <th scope="row"><%= updated_on(j) %></th>
-          <td><p class='lead'><strong><%= link_to image_tag(j.company.logo(:thumb)), j.company.careers_page_url, :target => '_blank'%></strong></p></td>
+          <td><p class='lead'><strong><%= link_to image_tag(j.company.logo(:thumb)), "http://#{j.company.careers_page_url}", :target => '_blank'%></strong></p></td>
           <td><h5><%= j.company.headquarters_location %></h5></td>
           <td><p class='lead'><em><%= link_to(j.title, company_job_path(j.company.id, j.id)) %></em></p></td>
           <td><h5><%= j.company.industry %></h5></td>
