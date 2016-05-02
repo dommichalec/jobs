@@ -6,7 +6,11 @@
       <% if @job.still_available? %>
         <p class='lead' style="color:green"><em>This position currently has <strong><%= pluralize(@job.available_positions, 'remaining spot') %></strong> open for hire</em></p>
       <% else %>
-        <p class='lead' style="color:red"><em><%= @job.company.name %> has filled this position </em></p>
+        <p class='lead' style="color:red"><em><%= @job.company.name %> has filled this position</em>
+          <%= link_to company_job_path, class: 'btn btn-default', method: :delete, data: { confirm: "Are you sure you want to remove this posting from the site? Click 'OK' to confirm or 'Cancel' to go back" } do %>
+            <i class="glyphicon glyphicon-trash"></i>
+          <% end %>
+        </p>
       <% end %>
       <h3>A little about this position: </h3>
       <p class='lead'><%= @job.description %></p>
@@ -25,7 +29,6 @@
     </div>
   </div>
   <h3><%= link_to("Update this post's status", edit_company_job_path) %></h3>
-  <h3><%= link_to("Remove this post from the site", company_job_path, method: :delete, data: { confirm: "Are you sure you want to remove this posting from the site? Click 'OK' to confirm or 'Cancel' to go back" }) %></h3>
 </div>
 
 <% if @job.still_available? %>

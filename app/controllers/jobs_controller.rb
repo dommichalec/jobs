@@ -1,7 +1,6 @@
 # Jobs controller
 class JobsController < ApplicationController
   before_action :require_signin, except: [:index, :show]
-  before_action :require_company_user, only: [:edit, :update, :destroy]
 
   def index
     @jobs = Job.last_updated
@@ -57,8 +56,6 @@ class JobsController < ApplicationController
   end
 
   def require_company_user
-    @user = User.find(params[:id])
-    @company = Company.find(params[:company_id])
-    current_user && @user.company.id == @company.id
+    current_user
   end
 end
