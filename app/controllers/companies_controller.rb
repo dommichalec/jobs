@@ -1,7 +1,6 @@
 # Company controller
 class CompaniesController < ApplicationController
   before_action :require_signin
-#   before_action :require_correct_user
 
   def index
     @companies = Company.all
@@ -9,6 +8,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @user = @company.users
   end
 
   def edit
@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.create(company_params)
     if @company.save
-      redirect_to company_path(@company), notice: "#{@company.name} has been successfully added to your account!"
+      redirect_to @company, notice: "#{@company.name} has been successfully added to your account!"
     else
       render :new
     end

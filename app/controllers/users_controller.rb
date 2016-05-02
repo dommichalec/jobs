@@ -11,6 +11,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @company = @user.company
+    if @user.company
+      redirect_to @company
+    end
   end
 
   def create
@@ -25,11 +29,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user, notice: "Your account was successfully updated!"
     else
@@ -48,11 +50,12 @@ class UsersController < ApplicationController
   def require_correct_user
     @user = User.find(params[:id])
     unless current_user?(@user)
-      redirect_to root_url, notice: "You do not have permission to do that."
+      redirect_to root_url, notice: "Unauthorized to edit that page"
     end
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).
+      permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 end
